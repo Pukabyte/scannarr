@@ -30,18 +30,19 @@ jobs:
       with:
         images: |
           ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.APP_NAME }}
+        flavor: |
+          latest=auto
         tags: |
             type=schedule
             type=ref,event=branch
             type=ref,event=pr
+            type=ref,event=tag
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
-            type=sha
         # List of custom labels
         # labels: # optional
-        flavor: |
-          latest=auto
+
     - name: Docker Setup QEMU
       uses: docker/setup-qemu-action@v2.1.0
     
