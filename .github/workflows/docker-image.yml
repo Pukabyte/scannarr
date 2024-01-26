@@ -40,7 +40,8 @@ jobs:
             type=sha
         # List of custom labels
         # labels: # optional
-
+        flavor: |
+          latest=auto
     - name: Docker Setup QEMU
       uses: docker/setup-qemu-action@v2.1.0
     
